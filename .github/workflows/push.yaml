@@ -13,6 +13,14 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
 
+      - name: 安装Pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: 安装依赖
+        run: pnpm i --no-frozen-lockfile --shamefully-hoist
+
       - name: 构建 & 部署
         uses: cloudflare/wrangler-action@v3
         with:
