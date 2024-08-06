@@ -1,23 +1,26 @@
 name: Deploy Worker
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    needs: test
+    environment: Release
     steps:
-      - uses: actions/checkout@v4
-      - name: Build & Deploy Worker
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 构建 & 部署
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           packageManager: pnpm
 
-      - name: print deployment-url
+      - name: 打印部署链接
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
         run: echo $DEPLOYMENT_URL
