@@ -24,9 +24,7 @@ export default async (): Promise<boolean> => {
       site: result.data.appURl,
       version: `${result.data.buildVersion}+${result.data.buildVersionNo}`,
       download_url: result.data.downloadURL,
-      build_version: result.data.buildBuildVersion,
-      update_version: appConfig.update_version,
-      update_notes: appConfig.update_notes,
+      update_notes: result.data.buildUpdateDescription,
       forced_update_version: appConfig.forced_update_version,
       forced_update_notes: appConfig.forced_update_notes,
     };
