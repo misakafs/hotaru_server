@@ -1,5 +1,6 @@
 const apiKey = Deno.env.get("API_KEY") ?? "";
 const appKey = Deno.env.get("APP_KEY") ?? "";
+const baseUrl = Deno.env.get("BASE_URL") ?? "";
 
 const payload = `_api_key=${apiKey}&appKey=${appKey}`;
 
@@ -23,7 +24,7 @@ export default async (): Promise<boolean> => {
     const config: Record<string, string> = {
       site: 'https://www.pgyer.com/gxizJA5h',
       version: `${result.data.buildVersion}+${result.data.buildVersionNo}`,
-      download_url: `https://mirror.ghproxy.com/https://github.com/misakafs/hotaru_server/releases/latest/download/app-arm64-v8a-release.apk`,
+      download_url: `${baseUrl}https://github.com/misakafs/hotaru_server/releases/latest/download/app-arm64-v8a-release.apk`,
       update_notes: result.data.buildUpdateDescription,
       forced_update_version: appConfig.forced_update_version,
       forced_update_notes: appConfig.forced_update_notes,
