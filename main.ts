@@ -13,7 +13,7 @@ app.post("/api/webhook", async (c) => {
   return c.text(`${ok}`);
 });
 
-app.post("/api/config", async (c) => {
+app.get("/api/config", async (c) => {
   const cfg = await config();
   if (cfg) {
     return c.json(cfg);
