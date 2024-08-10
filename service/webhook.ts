@@ -21,7 +21,7 @@ export default async (): Promise<boolean> => {
     const appConfig = JSON.parse(await Deno.readTextFile("./config/app.json"));
 
     const config: Record<string, string> = {
-      site: result.data.appURl,
+      site: 'https://www.pgyer.com/gxizJA5h',
       version: `${result.data.buildVersion}+${result.data.buildVersionNo}`,
       download_url: `https://mirror.ghproxy.com/https://github.com/misakafs/hotaru_server/releases/latest/download/app-arm64-v8a-release.apk`,
       update_notes: result.data.buildUpdateDescription,
