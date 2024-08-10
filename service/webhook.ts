@@ -23,7 +23,7 @@ export default async (): Promise<boolean> => {
     const config: Record<string, string> = {
       site: result.data.appURl,
       version: `${result.data.buildVersion}+${result.data.buildVersionNo}`,
-      download_url: `https://www.pgyer.com/manager/version/download/${result.data.buildKey}`,
+      download_url: `https://mirror.ghproxy.com/https://github.com/misakafs/hotaru_server/releases/latest/download/app-arm64-v8a-release.apk`,
       update_notes: result.data.buildUpdateDescription,
       forced_update_version: appConfig.forced_update_version,
       forced_update_notes: appConfig.forced_update_notes,
